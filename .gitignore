@@ -1,0 +1,7 @@
+.idea/php.xml
+.idea/web.iml
+.vscode
+.DS_Store
+.idea/commandlinetools/
+.idea/phpunit.xml
+/vendor

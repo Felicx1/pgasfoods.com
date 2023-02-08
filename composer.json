@@ -1,0 +1,95 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.2",
+        "anhskohbo/no-captcha": "^3.3",
+        "barryvdh/laravel-dompdf": "^0.8.6",
+        "fideloper/proxy": "^4.0",
+        "hisorange/browser-detect": "^4.3",
+        "laravel/framework": "^6.2",
+        "laravel/passport": "^8.0",
+        "laravel/tinker": "^1.0",
+        "lcobucci/jwt": "3.3.3",
+        "mews/captcha": "^3.2",
+        "phynix/cart": "dev-master",
+        "phynix/stripe": "dev-master",
+        "phynix/web": "dev-master",
+        "phynixmedia/mailerv5-php": "dev-master",
+        "phynixmedia/store-bridge-php": "dev-master",
+        "store/manager": "dev-master",
+        "stripe/stripe-php": "^8.3",
+        "yoeunes/toastr": "^1.2"
+    },
+    "require-dev": {
+        "facade/ignition": "^1.4",
+        "fzaninotto/faker": "^1.4",
+        "laracasts/generators": "^1.1",
+        "mockery/mockery": "^1.0",
+        "nunomaduro/collision": "^3.0",
+        "phpunit/phpunit": "^8.5"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "files": [
+            "app/Helpers/Helper.php",
+            "app/Helpers/store_helper.php",
+            "app/Helpers/cms_helper.php",
+            "app/Helpers/account_helper.php",
+            "app/Helpers/cart_helper.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "repositories":[
+        {
+            "type": "vcs",
+            "url" : "https://phynixmedia:XrgjZBCKe7ZbG7UQa99s@bitbucket.org/phynixmedia/store-bridge-php.git",
+            "reference": "develop"
+        },
+        {
+            "type": "vcs",
+            "url" : "https://phynixmedia:XrgjZBCKe7ZbG7UQa99s@bitbucket.org/phynixmedia/mailerv5-php.git",
+            "reference": "develop"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    }
+}
